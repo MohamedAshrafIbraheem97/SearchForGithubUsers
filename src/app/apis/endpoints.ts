@@ -1,5 +1,8 @@
 import { environment } from 'src/environments/environment';
 
 export const APIs = {
-  users: environment.baseUrl + '/users/',
+  users: {
+    singleUser: environment.baseUrl + '/users/',
+    searchForUsers: environment.baseUrl + '/search/users?q=',
+  },
 };

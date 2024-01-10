@@ -1,34 +1,31 @@
 export interface User {
-  login: 'octocat';
-  id: 1;
-  node_id: 'MDQ6VXNlcjE=';
-  avatar_url: 'https://github.com/images/error/octocat_happy.gif';
-  gravatar_id: '';
-  url: 'https://api.github.com/users/octocat';
-  html_url: 'https://github.com/octocat';
-  followers_url: 'https://api.github.com/users/octocat/followers';
-  following_url: 'https://api.github.com/users/octocat/following{/other_user}';
-  gists_url: 'https://api.github.com/users/octocat/gists{/gist_id}';
-  starred_url: 'https://api.github.com/users/octocat/starred{/owner}{/repo}';
-  subscriptions_url: 'https://api.github.com/users/octocat/subscriptions';
-  organizations_url: 'https://api.github.com/users/octocat/orgs';
-  repos_url: 'https://api.github.com/users/octocat/repos';
-  events_url: 'https://api.github.com/users/octocat/events{/privacy}';
-  received_events_url: 'https://api.github.com/users/octocat/received_events';
-  type: 'User';
-  site_admin: false;
-  name: 'monalisa octocat';
-  company: 'GitHub';
-  blog: 'https://github.com/blog';
-  location: 'San Francisco';
-  email: 'octocat@github.com';
-  hireable: false;
-  bio: 'There once was...';
-  twitter_username: 'monatheoctocat';
-  public_repos: 2;
-  public_gists: 1;
-  followers: 20;
-  following: 0;
-  created_at: '2008-01-14T04:33:35Z';
-  updated_at: '2008-01-14T04:33:35Z';
+  avatar_url: string;
+  events_url: string;
+  followers_url: string;
+  following_url: string;
+  gists_url: string;
+  gravatar_id: string;
+  html_url: string;
+  id: number;
+  login: string;
+  node_id: string;
+  organizations_url: string;
+  received_events_url: string;
+  repos_url: string;
+  score: number;
+  site_admin: boolean;
+  starred_url: string;
+  subscriptions_url: string;
+  type: ITEM_TYPE.User;
+  url: string;
+}
+
+export interface SharedResponse<T> {
+  incomplete_results: boolean;
+  items: T[];
+  total_count: number;
+}
+
+export enum ITEM_TYPE {
+  User = 'User',
 }

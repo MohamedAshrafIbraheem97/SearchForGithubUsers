@@ -1,1 +1,22 @@
-<p>search-results works!</p>
+<ng-container *ngIf="sharedResponse?.total_count">
+  <div class="row">
+    <div class="col-6 mb-4">Total count: {{ sharedResponse.total_count }}</div>
+  </div>
+  <ul class="list-group">
+    <li class="list-group-item" *ngFor="let user of sharedResponse.items">
+      <div class="d-flex align-items-center">
+        <div class="user-avatar img-box rounded-2 overflow-hidden">
+          <img [src]="user.avatar_url" alt="" class="w-100" />
+        </div>
+        <div>
+          <p class="m-0 ps-2">{{ user.login }}</p>
+        </div>
+      </div>
+    </li>
+  </ul>
+</ng-container>
+<ng-container *ngIf="sharedResponse?.total_count === 0">
+  <div class="row">
+    <p class="text-center">No Data found, Try another user name...</p>
+  </div>
+</ng-container>
