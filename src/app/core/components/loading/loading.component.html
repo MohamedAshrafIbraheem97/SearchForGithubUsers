@@ -1,6 +1,4 @@
-<div
-  *ngIf="_loadingService.isLoading$ | async"
-  class="d-flex justify-content-center"
->
+<!-- show the loading spinner only when there's a loading -->
+<div *ngIf="isLoading$ | async" class="d-flex justify-content-center">
   <div class="spinner-border" role="status"></div>
 </div>

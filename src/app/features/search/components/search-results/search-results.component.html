@@ -1,9 +1,10 @@
-<ng-container *ngIf="sharedResponse?.total_count">
+<!-- show when there's a data to be shown -->
+<ng-container *ngIf="(userList$ | async)?.length; else noData">
   <div class="row">
-    <div class="col-6 mb-4">Total count: {{ sharedResponse.total_count }}</div>
+    <div class="col-6 mb-4">Total count: {{ (userList$ | async)?.length }}</div>
   </div>
   <ul class="list-group">
-    <li class="list-group-item" *ngFor="let user of sharedResponse.items">
+    <li class="list-group-item" *ngFor="let user of userList$ | async">
       <div class="d-flex align-items-center">
         <div class="user-avatar img-box rounded-2 overflow-hidden">
           <img [src]="user.avatar_url" alt="" class="w-100" />
@@ -15,8 +16,10 @@
     </li>
   </ul>
 </ng-container>
-<ng-container *ngIf="sharedResponse?.total_count === 0">
+
+<!-- when no data is found -->
+<ng-template #noData>
   <div class="row">
-    <p class="text-center">No Data found, Try another user name...</p>
+    <p class="text-center">No Data found, Try another username...</p>
   </div>
-</ng-container>
+</ng-template>
